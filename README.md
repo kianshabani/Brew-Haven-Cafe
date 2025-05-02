@@ -120,7 +120,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-For any questions or suggestions, please contact the project maintainer.
+linkedin:www.linkedin.com/in/kian-shabani-213618333
 
 ---
 
