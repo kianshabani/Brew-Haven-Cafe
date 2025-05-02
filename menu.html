@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Brew Haven Cafe</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script defer src="index.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Brew Haven</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><button class="login-btn">Login</button></li>
+                <li><button class="theme-toggle"><i class="fas fa-moon"></i></button></li>
+                <li>
+                    <button class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content cart-content">
+            <span class="close-modal">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be populated by JavaScript -->
+            </div>
+            <div class="cart-total">
+                <p>Total: $<span id="cart-total">0.00</span></p>
+                <button class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login/Register Modal -->
+    <div class="modal" id="auth-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-container">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="register">Register</button>
+                </div>
+                <div class="auth-form" id="login-form">
+                    <h2>Welcome Back</h2>
+                    <form>
+                        <div class="form-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="auth-submit">Login</button>
+                    </form>
+                    <div class="social-login">
+                        <p>Or login with</p>
+                        <div class="social-buttons">
+                            <button class="social-btn google"><i class="fab fa-google"></i></button>
+                            <button class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="auth-form" id="register-form" style="display: none;">
+                    <h2>Create Account</h2>
+                    <form>
+                        <div class="form-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="submit" class="auth-submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="menu-categories">
+            <button class="category-btn active" data-category="coffee">Coffee</button>
+            <button class="category-btn" data-category="pastries">Pastries</button>
+            <button class="category-btn" data-category="sandwiches">Sandwiches</button>
+            <button class="category-btn" data-category="desserts">Desserts</button>
+        </div>
+        <div class="menu-items" id="menu-items">
+            <!-- Coffee Items -->
+            <div class="menu-item" data-category="coffee">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Espresso">
+                <div class="menu-item-content">
+                    <h3>Espresso</h3>
+                    <p class="price">$3.50</p>
+                    <p class="description">Rich and bold espresso shot</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item" data-category="coffee">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Cappuccino">
+                <div class="menu-item-content">
+                    <h3>Cappuccino</h3>
+                    <p class="price">$4.50</p>
+                    <p class="description">Espresso with steamed milk and foam</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item" data-category="coffee">
+                <img src="https://images.unsplash.com/photo-1517705008128-361805f39e7b" alt="Latte">
+                <div class="menu-item-content">
+                    <h3>Latte</h3>
+                    <p class="price">$4.75</p>
+                    <p class="description">Espresso with steamed milk</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Pastry Items -->
+            <div class="menu-item" data-category="pastries">
+                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2" alt="Croissant">
+                <div class="menu-item-content">
+                    <h3>Croissant</h3>
+                    <p class="price">$3.25</p>
+                    <p class="description">Buttery and flaky pastry</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item" data-category="pastries">
+                <img src="https://images.unsplash.com/photo-1587241321921-91a834d6d191" alt="Muffin">
+                <div class="menu-item-content">
+                    <h3>Blueberry Muffin</h3>
+                    <p class="price">$3.50</p>
+                    <p class="description">Fresh blueberry muffin</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Sandwich Items -->
+            <div class="menu-item" data-category="sandwiches">
+                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Avocado Toast">
+                <div class="menu-item-content">
+                    <h3>Avocado Toast</h3>
+                    <p class="price">$7.50</p>
+                    <p class="description">Sourdough toast with avocado and eggs</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item" data-category="sandwiches">
+                <img src="https://images.unsplash.com/photo-1559847844-1ff4d5b02fcf" alt="Turkey Sandwich">
+                <div class="menu-item-content">
+                    <h3>Turkey Sandwich</h3>
+                    <p class="price">$8.50</p>
+                    <p class="description">Turkey, cheese, and veggies on ciabatta</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Dessert Items -->
+            <div class="menu-item" data-category="desserts">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb" alt="Chocolate Cake">
+                <div class="menu-item-content">
+                    <h3>Chocolate Cake</h3>
+                    <p class="price">$5.50</p>
+                    <p class="description">Rich chocolate cake with ganache</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <div class="menu-item" data-category="desserts">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307" alt="Cheesecake">
+                <div class="menu-item-content">
+                    <h3>New York Cheesecake</h3>
+                    <p class="price">$6.00</p>
+                    <p class="description">Classic New York style cheesecake</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Brew Haven Cafe. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>
